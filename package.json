@@ -1,0 +1,54 @@
+{
+  "name": "pdf-bot",
+  "version": "0.6.1",
+  "author": "Esben Petersen <esbenspetersen@gmail.com>",
+  "homepage": "https://github.com/esbenp/pdf-bot",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esbenp/pdf-bot.git"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "description": "A Node queue API for generating PDFs using headless Chrome. Comes with a CLI, S3 storage and webhooks for notifying subscribers about generated PDFs",
+  "main": "./src/index.js",
+  "bin": "./bin/pdf-bot.js",
+  "files": [
+    "bin/",
+    "src/",
+    "storage/"
+  ],
+  "scripts": {
+    "example": "DEBUG=pdf:* node ./bin/pdf-bot.js --config ./examples/pdf-bot.config.js",
+    "example:receiving-api": "DEBUG=pdf:* node ./examples/receiving-api.js",
+    "test": "nyc --reporter=lcov --reporter=text mocha test/*.test.js --recursive --coverage",
+    "test:watch": "mocha -w test/*.test.js --recursive"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cli-table": "^0.3.1",
+    "commander": "^2.11.0",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "html-pdf-chrome": "^0.4.2",
+    "lodash.chunk": "^4.2.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.0",
+    "lowdb": "^0.16.2",
+    "node-fetch": "^2.6.1",
+    "pg": "^7.4.0",
+    "prompt": "^1.0.0",
+    "s3": "^4.4.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "coveralls": "^2.13.1",
+    "mocha": "^3.5.0",
+    "nyc": "^11.1.0",
+    "proxyquire": "^1.8.0",
+    "sinon": "^3.0.0",
+    "supertest": "^3.0.0"
+  }
+}
